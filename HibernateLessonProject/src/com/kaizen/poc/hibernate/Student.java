@@ -1,14 +1,17 @@
 package com.kaizen.poc.hibernate;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "STUDENTS")
+@Table(name= "newstudents")
 public class Student {
 
 	@Id 
@@ -17,31 +20,20 @@ public class Student {
 	
 	private String student_name;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	private StudentAddress studentAddress;
-	
 	/*
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="student_id")
-	private StudentDetail studentDetail;
+	@ManyToMany(cascade = CascadeType.ALL)
+	private Set<StudentCertification> studentCertification = new HashSet<StudentCertification>(0);
 	
-	public StudentDetail getStudentDetail() {
-		return studentDetail;
+	public Set<StudentCertification> getStudentCertification() {
+		return studentCertification;
 	}
 
-	public void setStudentDetail(StudentDetail studentDetail) {
-		this.studentDetail = studentDetail;
+	public void setStudentCertification(
+			Set<StudentCertification> studentCertification) {
+		this.studentCertification = studentCertification;
 	}
-	*/
+	 */
 	
-	public StudentAddress getStudentAddress() {
-		return studentAddress;
-	}
-
-	public void setStudentAddress(StudentAddress studentAddress) {
-		this.studentAddress = studentAddress;
-	}
-
 	public int getStudent_id() {
 		return student_id;
 	}

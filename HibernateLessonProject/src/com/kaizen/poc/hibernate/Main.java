@@ -8,24 +8,18 @@ public class Main {
 
 	public static void main(String[] args) {
 			
-		StudentAddress studentAddress = new StudentAddress();
-		studentAddress.setAddress_detail("Konoha Village");
-		
+		Student student = new Student();
 		Student student1 = new Student();
-		student1.setStudent_name("Naruto");
-		student1.setStudentAddress(studentAddress);
+		student1.setStudent_name("pardz pogi");
 		
 		Student student2 = new Student();
-		student2.setStudent_name("Saske");
-		student2.setStudentAddress(studentAddress);
+		student2.setStudent_name("naruto");
 		
 		Student student3 = new Student();
-		student3.setStudent_name("Sakura");
-		student3.setStudentAddress(studentAddress);
+		student3.setStudent_name("saske");
 		
-		studentAddress.getStudents().add(student1);
-		studentAddress.getStudents().add(student2);
-		studentAddress.getStudents().add(student3);
+		Student student4 = new Student();
+		student4.setStudent_name("sakura");
 		
 		 SessionFactory sessionFactory = new Configuration()
 		    .configure("/com/kaizen/poc/hibernate/hibernate.cfg.xml").buildSessionFactory();
@@ -33,7 +27,17 @@ public class Main {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		session.save(studentAddress);
+		session.save(student1);
+		session.save(student2);
+		session.save(student3);
+		session.save(student4);
+		
+		student = session.get(Student.class, 1);
+		
+		System.out.println("FECTH STUDENT NAME : " + student.getStudent_name());
+		System.out.println("FECTH STUDENT ID : " + student.getStudent_id());
+		student.setStudent_name("pardz ang pinakapogi");
+		session.update(student);
 		
 		session.getTransaction().commit();
 		session.close();

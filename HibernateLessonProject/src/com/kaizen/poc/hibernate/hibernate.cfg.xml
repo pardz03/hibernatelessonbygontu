@@ -28,8 +28,9 @@
    <!-- Mention here all the model classes along with their package name -->
 
    <mapping class="com.kaizen.poc.hibernate.Student"/>
-   <mapping class="com.kaizen.poc.hibernate.StudentDetail"/>
-   <mapping class="com.kaizen.poc.hibernate.StudentAddress"/>
+<!--    <mapping class="com.kaizen.poc.hibernate.StudentDetail"/> -->
+<!--    <mapping class="com.kaizen.poc.hibernate.StudentAddress"/> -->
+<!--    <mapping class="com.kaizen.poc.hibernate.StudentCertification"/> -->
    <!--    <mapping class="com.kaizen.poc.hibernate.StudentInfo"/> -->
 
 </session-factory>
