@@ -3,14 +3,9 @@ package com.kaizen.poc.hibernate;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 
 @Entity
 @Table(name= "STUDENTS")
@@ -22,6 +17,10 @@ public class Student {
 	
 	private String student_name;
 	
+	@ManyToOne(cascade=CascadeType.ALL)
+	private StudentAddress studentAddress;
+	
+	/*
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="student_id")
 	private StudentDetail studentDetail;
@@ -32,6 +31,15 @@ public class Student {
 
 	public void setStudentDetail(StudentDetail studentDetail) {
 		this.studentDetail = studentDetail;
+	}
+	*/
+	
+	public StudentAddress getStudentAddress() {
+		return studentAddress;
+	}
+
+	public void setStudentAddress(StudentAddress studentAddress) {
+		this.studentAddress = studentAddress;
 	}
 
 	public int getStudent_id() {
