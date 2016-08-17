@@ -1,7 +1,5 @@
 package com.kaizen.poc.hibernate;
 
-import java.util.Date;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -9,16 +7,19 @@ import org.hibernate.cfg.Configuration;
 public class Main {
 
 	public static void main(String[] args) {
+			
+		Student student = new Student();
+		student.setStudent_name("pogi si pardz");
+		
+		StudentDetail studentDetail = new StudentDetail();
+		studentDetail.setStudent_mobile_number("0916-0000-111");
+		studentDetail.setStudent(student);
+		
+		student.setStudentDetail(studentDetail);
 	
-		StudentInfo studentInfo1 = new StudentInfo();
-		
-		StudentInfo studentInfo2 = new StudentInfo();
-		
-		studentInfo1.setName("pardz1");
-		studentInfo1.setBirthDate(new Date());
-		
-		studentInfo2.setName("pardz2");
-		studentInfo2.setBirthDate(new Date());
+//		student.setStudentDetail(studentDetail);
+		//this is an important step
+//		studentDetail.setStudent(student);
 		
 		 SessionFactory sessionFactory = new Configuration()
 		    .configure("/com/kaizen/poc/hibernate/hibernate.cfg.xml").buildSessionFactory();
@@ -26,8 +27,7 @@ public class Main {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		session.save(studentInfo1);
-		session.save(studentInfo2);
+		session.save(student);
 		
 		session.getTransaction().commit();
 		session.close();

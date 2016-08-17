@@ -26,7 +26,10 @@
 	<property name="hbm2ddl.auto">create</property>
 	
    <!-- Mention here all the model classes along with their package name -->
-   <mapping class="com.kaizen.poc.hibernate.StudentInfo"/>
+
+   <mapping class="com.kaizen.poc.hibernate.Student"/>
+   <mapping class="com.kaizen.poc.hibernate.StudentDetail"/>
+   <!--    <mapping class="com.kaizen.poc.hibernate.StudentInfo"/> -->
 
 </session-factory>
 </hibernate-configuration>

@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+/*
 @Entity
 @Table(name="STUDENT_INFORMATION")
 public class StudentInfo {
@@ -48,3 +49,5 @@ public class StudentInfo {
 	}
 
 }
+
+*/
